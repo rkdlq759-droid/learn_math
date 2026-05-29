@@ -1,10 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  allowedDevOrigins: ["*"], // Allows development access from any local network IP
+  allowedDevOrigins: ["*"],
   experimental: {
     serverActions: {
-      allowedOrigins: ["*"], // For development convenience, allowing all. You might want to restrict this in production.
+      allowedOrigins: ["learn-math-cyan.vercel.app", "*.vercel.app", "localhost:3000"],
     },
   },
 };
