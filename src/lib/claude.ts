@@ -3,8 +3,12 @@ import Anthropic from "@anthropic-ai/sdk";
 const MODEL = "claude-haiku-4-5-20251001";
 
 function createAnthropicClient() {
-  const apiKey = process.env.API_KEY;
-  if (!apiKey) throw new Error("API_KEY is not configured on the server");
+  const apiKey = process.env.ANTHROPIC_API_KEY ?? process.env.API_KEY;
+  if (!apiKey) {
+    throw new Error(
+      "ANTHROPIC_API_KEY is not configured on the server. Add it to Vercel Project Settings > Environment Variables."
+    );
+  }
 
   return new Anthropic({
     apiKey,
